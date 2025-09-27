@@ -5,9 +5,9 @@
 **A. Project Overview**
 
 - This project aims to:
-  + 1 bảng DAU
-  + 1 bảng MAU
-  + 1 funnel view→cart→transaction
+  + 1 DAU
+  + 1 MAU
+  + 1 funnel
 
 **B. Dataset Information**
 
@@ -24,7 +24,7 @@ _**Source**_
 - Data Cleaning:
   + Blank Checking:
     - category_tree:
-      + Parentid: ~1.5% missing values --> Missing values are expected for top-level categories, so no imputation is needed.
+      + Parentid: ~1.5% missing values --> minimal (~1.5%) and correspond to root-level categories without a parent. As no category dictionary is provided in the public dataset, these NaN values are considered expected and require no imputation.
     - events:
       + Transactionid: 99.5% missing values --> Hợp lý. Because blanks occur by design since only transaction events generate an ID, while view and addtocart remain empty.
   + Outliers Checking: 0%
