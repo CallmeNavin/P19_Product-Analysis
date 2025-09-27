@@ -4,7 +4,10 @@
 
 **A. Project Overview**
 
-- This project aims to 
+- This project aims to:
+  + 1 bảng DAU
+  + 1 bảng MAU
+  + 1 funnel view→cart→transaction
 
 **B. Dataset Information**
 
@@ -12,10 +15,19 @@ _**Source**_
 
 - Retailrocket recommender system dataset (from Kaggle)
 - https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset
+- Sampling Data (Keep 1000 rows/file)
 
 **C. Methodology**
 
-- 
+- Combine 2 raw data files: item_properties_part1 & item_properties_part2 into 1 file: item_properties
+- Change file "events" into csv for reduct storage, load fast to google colab
+- Data Cleaning:
+  + Blank Checking:
+    - category_tree:
+      + Parentid: ~1.5% missing values --> Missing values are expected for top-level categories, so no imputation is needed.
+    - events:
+      + Transactionid: 99.5% missing values --> Hợp lý. Because blanks occur by design since only transaction events generate an ID, while view and addtocart remain empty.
+  + Outliers Checking: 0%
 
 **D. Key Findings & Actionable Plans**
 
