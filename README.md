@@ -4,10 +4,7 @@
 
 **A. Project Overview**
 
-- This project aims to:
-  + 1 DAU
-  + 1 MAU
-  + 1 funnel
+- This project analyzes user behavioral data from an e-commerce platform to measure Daily Active Users (DAU), Monthly Active Users (MAU) and conversion funnel metrics (view → cart → transaction).
 
 **B. Dataset Information**
 
@@ -15,19 +12,20 @@ _**Source**_
 
 - Retailrocket recommender system dataset (from Kaggle)
 - https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset
-- Sampling Data (Keep 1000 rows/file)
+- In this version, I used only file "events" for analyzing User behaviorals and keep 'Timestamp' columns from September 1st, 2015 to October 31st, 2015
 
 **C. Methodology**
 
-- Combine 2 raw data files: item_properties_part1 & item_properties_part2 into 1 file: item_properties
-- Change file "events" into csv for reduct storage, load fast to google colab
 - Data Cleaning:
+  + Filter file 'event', 'timestamp' column from September 1st, 2015 to October 31st, 2015 for analyzing in this version, reduce the workload storage
   + Blank Checking:
     - category_tree:
       + Parentid: ~1.5% missing values --> minimal (~1.5%) and correspond to root-level categories without a parent. As no category dictionary is provided in the public dataset, these NaN values are considered expected and require no imputation.
     - events:
-      + Transactionid: 99.5% missing values --> Hợp lý. Because blanks occur by design since only transaction events generate an ID, while view and addtocart remain empty.
+      + Transactionid: 99.2% missing values --> Hợp lý. Because blanks occur by design since only transaction events generate an ID, while view and addtocart remain empty.
   + Outliers Checking: 0%
+- Export Cleaned Data
+- Handle 'item_properties' file for further versions
 
 **D. Key Findings & Actionable Plans**
 
@@ -39,9 +37,10 @@ _**Actionable Plans**_
 
 - x
 
-**E. Appendix**
+**E. Further Version**
 
-- x
+- Version 2: Join with 'item_properties' file - Funnel analysis by product dimension. (behaviors × product).
+- Version 3: Join with 'category_tree' + 'price band' - Deep insights
 
 **About Me**
 
